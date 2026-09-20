@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+  <proxies>
+    <proxy>
+      <id>local-http-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>127.0.0.1</host>
+      <port>18080</port>
+      <nonProxyHosts>localhost|127.0.0.1|*.svc|*.cluster.local|::1</nonProxyHosts>
+    </proxy>
+    <proxy>
+      <id>local-https-proxy</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>127.0.0.1</host>
+      <port>18080</port>
+      <nonProxyHosts>localhost|127.0.0.1|*.svc|*.cluster.local|::1</nonProxyHosts>
+    </proxy>
+  </proxies>
+  <profiles>
+    <profile>
+      <id>sonatype-snapshots</id>
+      <repositories>
+        <repository>
+          <id>sonatype-snapshots</id>
+          <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>sonatype-snapshots</id>
+          <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>sonatype-snapshots</activeProfile>
+  </activeProfiles>
+</settings>
